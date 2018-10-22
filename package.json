@@ -3,7 +3,10 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "version": "0.0.0",
   "nativescript": {
-    "id": "org.nativescript.PlantsGo"
+    "id": "org.nativescript.PlantsGo",
+    "tns-android": {
+      "version": "4.2.0"
+    }
   },
   "dependencies": {
     "@angular/animations": "~6.1.0",
@@ -16,6 +19,7 @@
     "@angular/platform-browser-dynamic": "~6.1.0",
     "@angular/router": "~6.1.0",
     "nativescript-angular": "~6.1.0",
+    "nativescript-sqlite": "^2.2.3",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.8",
     "rxjs": "~6.2.0",

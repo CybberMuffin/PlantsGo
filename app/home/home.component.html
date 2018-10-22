@@ -1,6 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<StackLayout class="p-20">
-  <Label text="Tap the button" class="h1 text-center"></Label>
+<ActionBar title="Home paek" class="action-bar" backgroundColor="#3490DC"></ActionBar>
+
+
+<!--<StackLayout class="p-20">
+  <Label text="Tap the k button" class="h1 text-center"></Label>
   <Button text="tap" (tap)="onTap()" class="btn btn-primary btn-active"></Button>
   <Label [text]="getMessage()" class="h2 text-center" textWrap="true"></Label>
-</StackLayout>
+</StackLayout>-->
+<GridLayout>
+  <StackLayout>
+    <ListView [items]="plants" class="list-group" <!--[itemTemplateSelector]="templateSelector"-->>
+      <ng-template let-plant="item" <!--nsTemplateKey="done"-->>
+        <Label [text]="plant.name"  class="list-group-item"></Label>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+</GridLayout>
