@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
+import { AllPlantsComponent } from './tabs/all-plants/all-plants.component';
+import { FavoritePlantsComponent } from './tabs/favorite-plants/favorite-plants.component';
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
@@ -15,6 +17,8 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
   declarations: [
       AppComponent,
       HomeComponent,
+      AllPlantsComponent,
+      FavoritePlantsComponent,
   ],
   imports: [
       NativeScriptModule,

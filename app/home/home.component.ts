@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Plant} from "~/plant";
-import {PlantsService} from "~/plants.service";
+import {PlantsService} from "~/services/plants.service";
+import {FirebaseService} from "~/services/firebase.service";
+
+import firebase = require("nativescript-plugin-firebase");
+require("nativescript-localstorage");
+import {action, alert, confirm, prompt, login} from "tns-core-modules/ui/dialogs";
 
 @Component({
   selector: 'app-home',
@@ -10,22 +15,39 @@ import {PlantsService} from "~/plants.service";
 })
 export class HomeComponent implements OnInit{
   title = 'PlantsGo';
-  private counter = 42;
-  private plants: Plant[];
+  private plants;
+  private myPlants;
+  public cent;
 
-  constructor(private plantsService: PlantsService) { }
+  constructor(private plantsService: PlantsService,
+              private firebaseService: FirebaseService) {
+      this.plantsService.createStorage("plants");
+  }
 
   ngOnInit(){
-    this.plants = this.plantsService.list;
+      this.getAll();
+      this.myPlants = this.plantsService.list;
+
   }
 
-  public getMessage() {
-    return this.counter > 0 ?
-      `${this.counter} taps left` :
-      'Hoorraaay! You unlocked the NativeScript clicker achievement!';
+  public getAll() {
+      firebase.getValue("/plants")
+          .then(result => {
+              this.plants = result.value;
+          })
+          .catch(error => console.log("Error: " + error))
   }
 
-  public onTap() {
-    this.counter--;
-  }
+    public confirmAdd(plant: Plant) {
+        confirm({
+            title: plant.name,
+            message: "Add this plant to your list?",
+            okButtonText: "YES",
+            cancelButtonText: "NO"
+        }).then((result) => {
+            if(result){
+                this.plantsService.addNew(plant);
+            }
+        });
+    }
 }

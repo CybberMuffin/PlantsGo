@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ActionBar title="Home paek" class="action-bar" backgroundColor="#3490DC"></ActionBar>
+<ActionBar title="Home page" class="action-bar" backgroundColor="#3490DC"></ActionBar>
 
 
 <!--<StackLayout class="p-20">
@@ -7,12 +7,35 @@
   <Button text="tap" (tap)="onTap()" class="btn btn-primary btn-active"></Button>
   <Label [text]="getMessage()" class="h2 text-center" textWrap="true"></Label>
 </StackLayout>-->
-<GridLayout>
-  <StackLayout>
-    <ListView [items]="plants" class="list-group" <!--[itemTemplateSelector]="templateSelector"-->>
-      <ng-template let-plant="item" <!--nsTemplateKey="done"-->>
-        <Label [text]="plant.name"  class="list-group-item"></Label>
-      </ng-template>
-    </ListView>
+<TabView [(ngModel)]="tabSelectedIndex" (selectedIndexChanged)="onSelectedIndexChanged($event)"
+         androidSelectedTabHighlightColor="#454545" tabBackgroundColor="#38C172" androidTabsPosition="bottom">
+  <StackLayout *tabItem="{title: 'Plants'}">
+    <StackLayout>
+      <GridLayout>
+        <StackLayout>
+          <ListView [items]="plants" class="list-group">
+            <ng-template let-plant="item">
+              <Label [text]="plant.name"  class="list-group-item" (tap)="confirmAdd(plant)"></Label>
+            </ng-template>
+          </ListView>
+        </StackLayout>
+        <StackLayout>
+          <Label [text]="cent"></Label>
+        </StackLayout>
+      </GridLayout>
+    </StackLayout>
   </StackLayout>
-</GridLayout>
+  <StackLayout *tabItem="{title: 'My Plants'}">
+    <StackLayout>
+      <GridLayout>
+        <StackLayout>
+            <ListView [items]="myPlants" class="list-group">
+            <ng-template let-plant="item">
+            <Label [text]="plant.name"  class="list-group-item"></Label>
+          </ng-template>
+          </ListView>
+        </StackLayout>
+      </GridLayout>
+    </StackLayout>
+  </StackLayout>
+</TabView>
