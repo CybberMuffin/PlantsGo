@@ -1,0 +1,13 @@
+<ActionBar [title]="title" backgroundColor="#a4ed7d" ></ActionBar>
+<GridLayout class="background-gradient">
+    <StackLayout>
+        <ListView [items]="plants" class="list-group">
+            <ng-template let-plant="item">
+                <GridLayout class="list-group-item" rows="*" columns="auto, *">
+                    <Image row="0" col="0" [src]="'~/images/i'+plant.id+'.jpg'" class="thumb img-circle"></Image>
+                    <Label row="0" col="1" [text]="plant.name"  class="list-group-item" (tap)="confirmAdd(plant)"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+    </StackLayout>
+</GridLayout>
