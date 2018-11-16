@@ -8,6 +8,7 @@ import {AppState} from "~/interfaces/state.interface";
 import { NotificationService } from '~/services/notification.service';
 import { LocalNotifications } from "nativescript-local-notifications";
 import { Color } from 'tns-core-modules/color/color';
+import { CalendarComponent } from '../calendar/calendar.component';
 
 //LocalNotifications.hasPermission();
 
@@ -19,22 +20,18 @@ import { Color } from 'tns-core-modules/color/color';
 })
 export class FavoritePlantsComponent implements OnInit {
   //private favorites: Observable<Plant[]>;
-    title = "Favourite plants f🍀";
+    title = "Favourite plants 🍀";
     private favorites;
-    private notific;
 
   constructor(private plantsService: PlantsService,
-    private not : NotificationService,
-              private store: Store<AppState>) {
-      //this.notifications();
+    private notificationService : NotificationService,
+     private store: Store<AppState>) {
       this.plantsService.createStorage("plants");
-      this.not.createStorage("plantsNotifications");
       //this.favorites = store.select('favor');
   }
 
   ngOnInit() {
     this.favorites = this.plantsService.list;
-    //this.notific = this.not.notifications;
   }
 
 
@@ -47,6 +44,7 @@ export class FavoritePlantsComponent implements OnInit {
       }).then((result) => {
           if(result){
               this.plantsService.delete(plant);
+              this.notificationService.delete(plant.id);
               this.favorites = this.plantsService.list;
           }
       });

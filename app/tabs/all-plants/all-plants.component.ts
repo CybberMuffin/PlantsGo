@@ -22,11 +22,8 @@ export class AllPlantsComponent implements OnInit {
                 private notificationService: NotificationService,
                 private firebaseService: FirebaseService,
                 private store: Store<AppState>) {
+        this.notificationService.createStorage("plantsNotifications");            
         this.getAll();
-        // this.firebaseService.load().getArr()
-        //     .subscribe((data) => {
-        //         this.plants = data;
-        //     });
     }
 
 
@@ -54,8 +51,9 @@ export class AllPlantsComponent implements OnInit {
             if(result){
                 let now = new Date();
                 this.plantsService.addNew(plant);
-                this.notificationService.addNewNotification({date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + plant.pour, 
-                    now.getMonth() + 1 > 4 && now.getMonth() + 1 < 10 ? 20 : 9), plantName: plant.name, watering: plant.pour});
+                let some = (new Date(now.getFullYear(), now.getMonth(), now.getDate() + plant.pour, 
+                now.getMonth() + 1 > 4 && now.getMonth() + 1 < 10 ? 20 : 9).toDateString());
+                this.notificationService.addNewNotification({id: plant.id, date: some, plantName: plant.name, watering: plant.pour});
             }
         });
     }

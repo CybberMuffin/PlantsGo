@@ -13,7 +13,6 @@ export class NotificationService {
 
   public createStorage(name: string){
     this.storage = name;
-    //applicationSettings.clear();
     if(applicationSettings.hasKey(this.storage))
         this.upload();
   }
@@ -27,16 +26,26 @@ export class NotificationService {
   } 
 
   public addNewNotification(notification: Notification){
+    if(!this.is_exists(notification)|| this._notifications.length == 0) {
     this._notifications.push(notification);
     this.save();
+    }
   }   
+
+  private is_exists(notification): boolean{
+    let objControl = this._notifications.find((obj) => obj.id == notification.id);
+    return objControl != undefined;
+}
+
+  public delete(id: number){
+    const bs = this._notifications.filter((obj) => obj.id != id);
+    this._notifications = bs; 
+    this.save();
+}
 
   get notifications(): Notification[] {
     return this._notifications;
   }
-   /*this._list.push({date: new Date(now.getFullYear(), now.getMonth(), now.getDate(), 
-    now.getMonth() + 1 > 4 && now.getMonth() + 1 < 10 ? 20 : 9),
-    plant: plant});*/
 }
 
 

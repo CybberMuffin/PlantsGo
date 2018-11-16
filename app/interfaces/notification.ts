@@ -1,6 +1,7 @@
 
 export interface Notification{
-    date: Date;
+    id: number;
+    date: string;
     plantName: string;
     watering: number;
 }

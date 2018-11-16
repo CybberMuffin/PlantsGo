@@ -17,10 +17,8 @@ export class PlantsService {
 
   public createStorage(name: string){
       this.storage = name;
-      //applicationSettings.clear();
       if(applicationSettings.hasKey(this.storage))
           this.get();
-     // this.notificationService.createStorage(this.storage + "Notifications");
   }
 
   public save(){
