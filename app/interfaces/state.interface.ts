@@ -1,5 +1,5 @@
 import {Plant} from "~/interfaces/plant";
 
 export interface AppState {
-    plants: Plant[]
+   readonly plants: Plant[];
 }

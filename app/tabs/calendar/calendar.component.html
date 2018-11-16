@@ -1,0 +1,21 @@
+<ActionBar title="Calendar 📆" class="action-bar" backgroundColor="#a4ed7d">
+</ActionBar>
+
+<StackLayout class="background-gradient">
+    <RadCalendar
+            [eventSource]="calendarEvents"
+            eventsViewMode="Inline"
+            selectionMode="Single"
+            viewMode="Month"
+            transitionMode="Stack"
+            locale="en-UK"
+
+            [monthViewStyle]="monthViewStyle" [yearViewStyle]="yearViewStyle"
+
+             (dateSelected)="onDateSelected($event)"
+             (dateDeselected)="onDateDeselected($event)"
+             (navigatedToDate)="onNavigatedToDate($event)"
+             (navigatingToDateStarted)="onNavigatingToDateStarted($event)"
+             (viewModeChanged)="onViewModeChanged($event)">
+    </RadCalendar>
+</StackLayout>

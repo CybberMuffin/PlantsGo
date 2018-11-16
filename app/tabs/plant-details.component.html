@@ -1,0 +1,13 @@
+<ActionBar [title]="title" backgroundColor="#a4ed7d" ></ActionBar>
+<GridLayout class="page" backgroundColor="#d4eac8">
+    <ScrollView #scrollView (scroll)="onScroll($event, scrollView, topView)">
+        <StackLayout>
+            <StackLayout #topView height="250" [backgroundImage]="image" style="background-size: cover">
+            </StackLayout>
+            <StackLayout width="100%"  padding="10">
+                <Label textWrap="true" [text]="plant.name" class="h2 description-label"></Label>
+                <Label textWrap="true" class="p-12" [text]="plant.description"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

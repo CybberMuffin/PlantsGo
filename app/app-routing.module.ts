@@ -5,12 +5,18 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import {AllPlantsComponent} from "~/tabs/all-plants/all-plants.component";
 import {FavoritePlantsComponent} from "~/tabs/favorite-plants/favorite-plants.component";
+import {CalendarComponent} from "~/tabs/calendar/calendar.component";
+import { PlantDetailsComponent } from './tabs/plant-details.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/(allPlantsTab:allPlants//favoritesTab:favorites)', pathMatch: 'full' },
+  { path: '', redirectTo: '/(allPlantsTab:allPlants//favoritesTab:favorites//calendarTab:calendar)',
+      pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'allPlants', component: AllPlantsComponent, outlet: 'allPlantsTab' },
-  { path: 'favorites', component: FavoritePlantsComponent, outlet: 'favoritesTab' }
+  { path: 'allPlants/:id', component: PlantDetailsComponent, outlet: 'allPlantsTab'},
+  { path: 'favorites', component: FavoritePlantsComponent, outlet: 'favoritesTab' },
+  { path: 'favorites/:id', component: PlantDetailsComponent, outlet: 'favoritesTab'},
+  { path: 'calendar', component: CalendarComponent, outlet: 'calendarTab'}
 ];
 
 @NgModule({

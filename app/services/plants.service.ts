@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Plant} from "~/interfaces/plant";
 import {ObservableArray} from "tns-core-modules/data/observable-array";
+import { NotificationService } from './notification.service';
 let applicationSettings = require("tns-core-modules/application-settings");
 require( "nativescript-localstorage" );
 
@@ -11,13 +12,15 @@ export class PlantsService {
     private _list: Plant[] = [];
     private storage: string;
 
-  constructor() {
+  constructor(private notificationService: NotificationService) {
   }
 
   public createStorage(name: string){
       this.storage = name;
+      //applicationSettings.clear();
       if(applicationSettings.hasKey(this.storage))
           this.get();
+     // this.notificationService.createStorage(this.storage + "Notifications");
   }
 
   public save(){
