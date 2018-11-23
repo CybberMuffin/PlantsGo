@@ -1,4 +1,5 @@
-<ActionBar [title]="title" backgroundColor="#a4ed7d" ></ActionBar>
+<ActionBar [title]="title" backgroundColor="#a4ed7d" >
+</ActionBar>
 <GridLayout class="background-gradient" height="100%">
     <ListView [items]="plants" class="list-group">
         <ng-template let-plant="item">
@@ -6,9 +7,9 @@
                 <StackLayout #topView height="154" [backgroundImage]="'~/images/i'+plant.id+'.jpg'" style="background-size: cover"></StackLayout>
                 <!-- <Label [text]="plant.name" class="item-title"></Label> -->
                 <GridLayout  class="item-title" rows="*" columns="auto, *">
-                    <Label row="0" col="0" [text]="plant.name" style='margin-top: 30'></Label>
-                    <Button row="0" col="1" text="Add to favorites" class="btn btn-primary" 
-                    style="font-size: 12; width: 25%; margin: 20 -50% 0 0; background-color: #a4ed7d; color: black;" (tap)="confirmAdd(plant)"></Button>
+                    <Label row="0" col="0" [text]="plant.name" style='margin-top: 5;'></Label>
+                    <Button row="0" col="1" text="Add to favorites" class="btn btn-primary"  horizontalAlignment="right"
+                    style="font-size: 12; width: 25%; margin: -10 0; background-color: #a4ed7d; color: black;" (tap)="confirmAdd(plant)"></Button>
                 </GridLayout>
             </GridLayout>
         </ng-template>

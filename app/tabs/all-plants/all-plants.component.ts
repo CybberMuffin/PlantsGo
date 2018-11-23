@@ -4,7 +4,6 @@ import {PlantsService} from "~/services/plants.service";
 import firebase = require("nativescript-plugin-firebase");
 import {Plant} from "~/interfaces/plant";
 import {confirm} from "tns-core-modules/ui/dialogs";
-import {Observable} from "rxjs/internal/Observable";
 import {Store} from "@ngrx/store";
 import {AppState} from "~/interfaces/state.interface";
 import { NotificationService } from '~/services/notification.service';
@@ -19,17 +18,12 @@ export class AllPlantsComponent implements OnInit {
     title = "All plants 🌵";
     public plants: Plant[] = [];
     constructor(private plantsService: PlantsService,
-                private notificationService: NotificationService,
-                private firebaseService: FirebaseService,
-                private store: Store<AppState>) {
-        this.notificationService.createStorage("plantsNotifications");            
+                private notificationService: NotificationService) {          
         this.getAll();
     }
 
 
     ngOnInit() {
-        console.log("What's the fuck?0");
-        console.log(JSON.stringify(this.notificationService.notifications));
     }
 
     private getAll(){

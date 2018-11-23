@@ -7,6 +7,7 @@ import {AllPlantsComponent} from "~/tabs/all-plants/all-plants.component";
 import {FavoritePlantsComponent} from "~/tabs/favorite-plants/favorite-plants.component";
 import {CalendarComponent} from "~/tabs/calendar/calendar.component";
 import { PlantDetailsComponent } from './tabs/plant-details.component';
+import { CustomPlantComponent } from './tabs/custom-plant/custom-plant.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/(allPlantsTab:allPlants//favoritesTab:favorites//calendarTab:calendar)',
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'allPlants/:id', component: PlantDetailsComponent, outlet: 'allPlantsTab'},
   { path: 'favorites', component: FavoritePlantsComponent, outlet: 'favoritesTab' },
   { path: 'favorites/:id', component: PlantDetailsComponent, outlet: 'favoritesTab'},
-  { path: 'calendar', component: CalendarComponent, outlet: 'calendarTab'}
+  { path: 'calendar', component: CalendarComponent, outlet: 'calendarTab'},
+  { path: 'favorites/addNew', component: CustomPlantComponent}
 ];
 
 @NgModule({

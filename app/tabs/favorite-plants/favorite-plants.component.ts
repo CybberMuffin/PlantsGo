@@ -2,15 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {PlantsService} from "~/services/plants.service";
 import {Plant} from "~/interfaces/plant";
 import {confirm} from "tns-core-modules/ui/dialogs";
-import {Observable} from "rxjs/internal/Observable";
 import {Store} from "@ngrx/store";
 import {AppState} from "~/interfaces/state.interface";
 import { NotificationService } from '~/services/notification.service';
-import { LocalNotifications } from "nativescript-local-notifications";
-import { Color } from 'tns-core-modules/color/color';
-import { CalendarComponent } from '../calendar/calendar.component';
+import {RouterExtensions} from "nativescript-angular";
+import { Notification } from '~/interfaces/notification';
 
-//LocalNotifications.hasPermission();
 
 @Component({
   selector: 'app-favorite-plants',
@@ -24,8 +21,7 @@ export class FavoritePlantsComponent implements OnInit {
     private favorites;
 
   constructor(private plantsService: PlantsService,
-    private notificationService : NotificationService,
-     private store: Store<AppState>) {
+    private notificationService : NotificationService, private router: RouterExtensions) {
       this.plantsService.createStorage("plants");
       //this.favorites = store.select('favor');
   }
@@ -46,8 +42,28 @@ export class FavoritePlantsComponent implements OnInit {
               this.plantsService.delete(plant);
               this.notificationService.delete(plant.id);
               this.favorites = this.plantsService.list;
+              
           }
       });
   }
 
+  public waterPlant(plant: Plant) {
+    confirm({
+      title: plant.name,
+      message: "Are you sure that you just have watered this plant ?",
+      okButtonText: "YES",
+      cancelButtonText: "NO"
+  }).then((result) => {
+      if(result){
+        let renovate: Notification = this.notificationService.getNotificationById(plant.id);
+        this.notificationService.delete(renovate.id);
+        this.notificationService.addNewNotification(renovate);
+      }
+  });
+  }
+
+  public goAdd(){
+    this.router.navigateByUrl('/favorites/addNew');
+  }
+  
 }

@@ -20,6 +20,7 @@ import { NativeScriptUICalendarModule } from "nativescript-ui-calendar/angular";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
 import { PlantDetailsComponent } from './tabs/plant-details.component';
+import { CustomPlantComponent } from './tabs/custom-plant/custom-plant.component';
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
@@ -30,7 +31,8 @@ import { PlantDetailsComponent } from './tabs/plant-details.component';
       AllPlantsComponent,
       FavoritePlantsComponent,
       CalendarComponent,
-      PlantDetailsComponent
+      PlantDetailsComponent,
+      CustomPlantComponent
   ],
   imports: [
       NativeScriptModule,

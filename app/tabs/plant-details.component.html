@@ -2,9 +2,9 @@
 <GridLayout class="page" backgroundColor="#d4eac8">
     <ScrollView #scrollView (scroll)="onScroll($event, scrollView, topView)">
         <StackLayout>
-            <StackLayout #topView height="250" [backgroundImage]="image" style="background-size: cover">
+            <StackLayout #topView height="250" [backgroundImage]="image" style="background-size: cover; z-index: 2">
             </StackLayout>
-            <StackLayout width="100%"  padding="10">
+            <StackLayout width="100%"  padding="10" style="z-index: 1">
                 <Label textWrap="true" [text]="plant.name" class="h2 description-label"></Label>
                 <Label textWrap="true" class="p-12" [text]="plant.description"></Label>
             </StackLayout>

@@ -35,18 +35,23 @@ export class NotificationService {
   private is_exists(notification): boolean{
     let objControl = this._notifications.find((obj) => obj.id == notification.id);
     return objControl != undefined;
-}
+  }
 
   public delete(id: number){
     const bs = this._notifications.filter((obj) => obj.id != id);
     this._notifications = bs; 
     this.save();
-}
+  }
 
   get notifications(): Notification[] {
     return this._notifications;
   }
+
+  public getNotificationById(id: number): Notification {
+    return this._notifications.find((obj) => obj.id == id);
+  }
 }
+
 
 
 

@@ -1,11 +1,21 @@
-<ActionBar [title]="title" backgroundColor="#a4ed7d"></ActionBar>
+<ActionBar [title]="title" backgroundColor="#a4ed7d">
+    <ActionItem  android.systemIcon="ic_menu_add"
+    ios.position="right" (tap)="goAdd()" [nsRouterLink]="['../favorites/addNew']"></ActionItem>
+</ActionBar>
 <GridLayout class="background-gradient" height="100%">
     <ListView [items]="favorites" class="list-group">
         <ng-template let-plant="item">
               <!-- <GridLayout class="list-item" [nsRouterLink]="['../favorites', plant.id]">  -->
-            <GridLayout class="list-item" (tap)="confirmDelete(plant)">
+            <GridLayout class="list-item" [nsRouterLink]="['../favorites', plant.id]">
                 <StackLayout #topView height="200" [backgroundImage]="'~/images/i'+plant.id+'.jpg'" style="background-size: cover"></StackLayout>
-                <Label [text]="plant.name" class="item-title"></Label>
+                <GridLayout class="item-title" rows="*" columns="*, 2*">
+                    <Label [text]="plant.name" row="0" col="0" style="margin-top: 5;" ></Label>
+                    <WrapLayout row="0" col="1" orientation="horizontal"  style="margin: -10 0"
+                    horizontalAlignment="right">
+                        <Button  text="Water" class="btn btn-primary btns" (tap)="waterPlant(plant)"></Button> 
+                        <Button  text="Delete" class="btn btn-primary btns" (tap)="confirmDelete(plant)"></Button>
+                    </WrapLayout>  
+                </GridLayout>
             </GridLayout>
         </ng-template>
     </ListView>

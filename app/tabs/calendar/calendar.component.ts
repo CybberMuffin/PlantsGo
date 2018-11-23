@@ -4,7 +4,6 @@ import { Color } from "color";
 import {CalendarStylesService} from "~/tabs/calendar/calendar-styles.service";
 import { NotificationService } from '~/services/notification.service';
 
-
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -77,8 +76,8 @@ export class CalendarComponent implements OnInit {
             new Color(255, 255, 54, 3)];
 
 
-            console.log("fucsdk?0");
-            console.log(JSON.stringify(this.notificationService.notifications));
+            //console.log("fucsdk?0");
+            //console.log(JSON.stringify(this.notificationService.notifications));
 
         for(let not of this.notificationService.notifications){
             startDate = new Date(not.date);
