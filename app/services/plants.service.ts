@@ -49,7 +49,7 @@ export class PlantsService {
 
   public delete(plant: Plant){
       const bs = this._list.filter((obj) => obj != plant);
-      this._list = bs; //[...bs];
+      this._list = bs;
       this.save();
   }
 
@@ -60,6 +60,10 @@ export class PlantsService {
 
   get list(): Plant[] {
       return this._list;
+  }
+
+  public getPlantById(id: number): Plant {
+    return this._list.find((obj) => obj.id == id);
   }
 
   set list(value: Plant[]) {

@@ -12,8 +12,8 @@
                     <Label [text]="plant.name" row="0" col="0" style="margin-top: 5;" ></Label>
                     <WrapLayout row="0" col="1" orientation="horizontal"  style="margin: -10 0"
                     horizontalAlignment="right">
-                        <Button  text="Water" class="btn btn-primary btns" (tap)="waterPlant(plant)"></Button> 
-                        <Button  text="Delete" class="btn btn-primary btns" (tap)="confirmDelete(plant)"></Button>
+                        <Label  text="💧" class="btn btns" (tap)="waterPlant(plant)" style="margin-right: -30"></Label> 
+                        <Label  text="❌" class="btn btns" (tap)="confirmDelete(plant)"></Label>
                     </WrapLayout>  
                 </GridLayout>
             </GridLayout>

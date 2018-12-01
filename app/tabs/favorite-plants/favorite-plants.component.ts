@@ -56,8 +56,17 @@ export class FavoritePlantsComponent implements OnInit {
   }).then((result) => {
       if(result){
         let renovate: Notification = this.notificationService.getNotificationById(plant.id);
+        let now = new Date();
         this.notificationService.delete(renovate.id);
-        this.notificationService.addNewNotification(renovate);
+        this.notificationService.addNewNotification(
+          {
+            id: renovate.id,
+            date: (new Date(now.getFullYear(), now.getMonth(), now.getDate() + renovate.watering, 
+            now.getMonth() + 1 > 4 && now.getMonth() + 1 < 10 ? 20 : 9).toDateString()), //new Date(new Date(renovate.date).getDate() + this.plantsService.getPlantById(renovate.id).pour) , 
+            plantName: renovate.plantName, 
+            watering: renovate.watering
+         });
+        //this.notificationService.addNewNotification(renovate);
       }
   });
   }

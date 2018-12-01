@@ -8,8 +8,10 @@
                 <!-- <Label [text]="plant.name" class="item-title"></Label> -->
                 <GridLayout  class="item-title" rows="*" columns="auto, *">
                     <Label row="0" col="0" [text]="plant.name" style='margin-top: 5;'></Label>
-                    <Button row="0" col="1" text="Add to favorites" class="btn btn-primary"  horizontalAlignment="right"
-                    style="font-size: 12; width: 25%; margin: -10 0; background-color: #a4ed7d; color: black;" (tap)="confirmAdd(plant)"></Button>
+                    <Label row="0" col="1" text="⭐️" class="btn"  horizontalAlignment="right"
+                    style="font-size: 24; width: 25%; margin: -10 -30 -10 0; color: black;" (tap)="confirmAdd(plant)"></Label>
+                    <!-- <Button row="0" col="1" text="Add to favorites" class="btn btn-primary"  horizontalAlignment="right"
+                    style="font-size: 12; width: 25%; margin: -10 0; background-color: #a4ed7d; color: black;" (tap)="confirmAdd(plant)"></Button> -->
                 </GridLayout>
             </GridLayout>
         </ng-template>

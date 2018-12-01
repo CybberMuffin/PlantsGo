@@ -3,7 +3,11 @@ import { Plant } from '~/interfaces/plant';
 import { ActivatedRoute } from "@angular/router";
 import { PlantsService } from '~/services/plants.service';
 import firebase = require("nativescript-plugin-firebase");
-import {View} from "tns-core-modules/ui/core/view";
+
+import { Image } from 'tns-core-modules/ui/image';
+import { View } from 'tns-core-modules/ui/core/view';
+import { Page } from "tns-core-modules/ui/page";
+import { screen } from 'tns-core-modules/platform';
 import {ScrollEventData, ScrollView} from "tns-core-modules/ui/scroll-view";
 
 @Component({
