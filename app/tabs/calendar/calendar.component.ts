@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import * as calendarModule from "nativescript-ui-calendar";
 import { Color } from "color";
 import {CalendarStylesService} from "~/tabs/calendar/calendar-styles.service";
@@ -20,42 +20,6 @@ export class CalendarComponent implements OnInit {
 
     constructor(private calendarService: CalendarStylesService,
         private notificationService: NotificationService) {
-        // let events = [];
-        // let now = new Date();
-        // let startDate;
-        // let endDate;
-        // let colors = [new Color(200, 188, 26, 214),
-        //     new Color(220, 255, 109, 130),
-        //     new Color(255, 55, 45, 255),
-        //     new Color(199, 17, 227, 10),
-        //     new Color(255, 255, 54, 3)];
-        // // for (let i = 1; i < 10; i++) {
-        // //     startDate = new Date(now.getFullYear(), now.getMonth(), i * 2, 1);
-        // //     endDate = new Date(now.getFullYear(), now.getMonth(), (i * 2), 3);
-        // //     let event = new calendarModule.CalendarEvent("event " + i, startDate, endDate, false,
-        // //         colors[i * 10 % (colors.length - 1)]);
-        // //     events.push(event);
-        // //     if (i % 3 == 0) {
-        // //         event = new calendarModule.CalendarEvent("second " + i, startDate, endDate, true,
-        // //             colors[i * 5 % (colors.length - 1)]);
-        // //         events.push(event);
-        // //     }
-        // // }
-        // // this.calendarEvents = events;
-        // console.log("What's the fucsdk?0");
-        // console.log(JSON.stringify(this.notificationService.notifications));
-
-        // for(let not of notificationService.notifications){
-        //     startDate = new Date(not.date);
-        //     endDate = new Date(not.date);
-        //     let event = new calendarModule.CalendarEvent("Wattering day of " + not.plantName, startDate, endDate, false,
-        //     colors[1]);
-        //     events.push(event);
-        // }
-
-        // console.log("kik");
-      
-        // this.calendarEvents = events;
     }
 
     ngOnInit() {
@@ -91,6 +55,7 @@ export class CalendarComponent implements OnInit {
         console.log("kik");
       
         this.calendarEvents = events;
+        
     }
 
     onDateSelected(args) {

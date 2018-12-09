@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import firebase = require("nativescript-plugin-firebase");
 import { LocalNotifications } from "nativescript-local-notifications";
 import { Color } from 'tns-core-modules/color/color';
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
         this.notificationService.addNewNotification(
           {
             id: renovate.id,
-            date: (new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, //renovate.watering, 
+            date: (new Date(now.getFullYear(), now.getMonth(), now.getDate() + renovate.watering, 
             now.getMonth() + 1 > 4 && now.getMonth() + 1 < 10 ? 20 : 9).toDateString()), //new Date(new Date(renovate.date).getDate() + this.plantsService.getPlantById(renovate.id).pour) , 
             plantName: renovate.plantName, 
             watering: renovate.watering
