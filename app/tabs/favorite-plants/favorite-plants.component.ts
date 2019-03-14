@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {PlantsService} from "~/services/plants.service";
 import {Plant} from "~/interfaces/plant";
 import {confirm} from "tns-core-modules/ui/dialogs";
-import {Store} from "@ngrx/store";
-import {AppState} from "~/interfaces/state.interface";
 import { NotificationService } from '~/services/notification.service';
 import {RouterExtensions} from "nativescript-angular";
 import { Notification } from '~/interfaces/notification';
@@ -16,14 +14,13 @@ import { Notification } from '~/interfaces/notification';
   moduleId: module.id,
 })
 export class FavoritePlantsComponent implements OnInit {
-  //private favorites: Observable<Plant[]>;
     title = "Favourite plants 🍀";
     private favorites;
 
   constructor(private plantsService: PlantsService,
     private notificationService : NotificationService, private router: RouterExtensions) {
       this.plantsService.createStorage("plants");
-      //this.favorites = store.select('favor');
+      
   }
 
   ngOnInit() {

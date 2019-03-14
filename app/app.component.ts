@@ -91,8 +91,8 @@ export class AppComponent implements OnInit {
         this.notificationService.addNewNotification(
           {
             id: renovate.id,
-            date: (new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, ///renovate.watering, 
-            now.getMonth() + 1 > 4 && now.getMonth() + 1 < 10 ? 20 : 9).toDateString()), //new Date(new Date(renovate.date).getDate() + this.plantsService.getPlantById(renovate.id).pour) , 
+            date: (new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, 
+            now.getMonth() + 1 > 4 && now.getMonth() + 1 < 10 ? 20 : 9).toDateString()),  
             plantName: renovate.plantName, 
             watering: renovate.watering
         });

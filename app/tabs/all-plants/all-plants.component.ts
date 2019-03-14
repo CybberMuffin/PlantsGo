@@ -4,8 +4,6 @@ import {PlantsService} from "~/services/plants.service";
 import firebase = require("nativescript-plugin-firebase");
 import {Plant} from "~/interfaces/plant";
 import {confirm} from "tns-core-modules/ui/dialogs";
-import {Store} from "@ngrx/store";
-import {AppState} from "~/interfaces/state.interface";
 import { NotificationService } from '~/services/notification.service';
 
 @Component({

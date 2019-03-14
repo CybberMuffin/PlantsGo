@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
 import {AllPlantsComponent} from "~/tabs/all-plants/all-plants.component";
 import {FavoritePlantsComponent} from "~/tabs/favorite-plants/favorite-plants.component";
 import {CalendarComponent} from "~/tabs/calendar/calendar.component";
@@ -12,7 +11,6 @@ import { CustomPlantComponent } from './tabs/custom-plant/custom-plant.component
 const routes: Routes = [
   { path: '', redirectTo: '/(allPlantsTab:allPlants//favoritesTab:favorites//calendarTab:calendar)',
       pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
   { path: 'allPlants', component: AllPlantsComponent, outlet: 'allPlantsTab' },
   { path: 'allPlants/:id', component: PlantDetailsComponent, outlet: 'allPlantsTab'},
   { path: 'favorites', component: FavoritePlantsComponent, outlet: 'favoritesTab' },
